@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script>
+
+        angular.module('myapp',[]).controller('ctrl',['$scope',function($scope) {
+            $scope.student = {
+                firstName:'Mahesh',
+                lastName:'Parashar',
+                fullName: function() {
+                    var studentObject = $scope.student;
+                    return studentObject.firstName + " " + studentObject.lastName;
+                }
+            }
+        }]);
+    </script>
+    <script>
+    function test() {
+    var i = 0;
+    var j = 2;
+    var k = i + j;
+    console.log(k)
+    return k;
+    };
+    /* function studentController($scope) {
+    $scope.student = {
+    firstName:'Mahesh',
+    lastName:'Parashar',
+    fullName: function() {
+    var studentObject = $scope.student;
+    return studentObject.firstName + " " + studentObject.lastName;
+    }
+    }
+    };*/
+    </script>
+</head>
+<body >
+<div ng-app="myapp">
+    <!-- <p>Enter your name: <input type="text" ng-model="name"></p>
+     <p>Hello <span ng-bind="name"></span>!</p>
+     <p>Hello {{name}}</span>!</p>
+     <ol>
+         <li ng-repeat=" contry in countries">
+             Country Name:<span ng-bind="contry.name"></span> Locale: <span ng-bind="contry.locale"></span>
+         </li>
+     </ol>-->
+    <div ng-controller="ctrl">
+        Enter first name:<input type="text" ng-model="student.firstName"> Last name:<input type="text" ng-model="student.lastName">
+        Full name:<span ng-bind="student.fullName()"/>
+    </div>
+</div>
+</body>
+<script>
+
+</script>
+</html>

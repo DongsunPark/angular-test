@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="raphael-min.js" ></script>
+    <script type="text/javascript" src="jsphylosvg.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            var dataObject = { newick: '(((seq1:3.8461551666259766,seq5:3.846151351928711):10.538461685180664,(seq3:5.12820561726888,seq4:2.5641009012858076):12.961538314819336):7.903844833374023,seq2:7.903844833374023);'};
+            phylocanvas = new Smits.PhyloCanvas(
+                    dataObject,
+                    'svgCanvas',
+                    500, 500
+            );
+        };
+    </script>
+</head>
+<body>
+<div id="svgCanvas"> </div>
+</body>
+</html>
