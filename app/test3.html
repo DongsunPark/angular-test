@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script>
+
+        angular.module('myapp',[]).controller('ctrl',['$scope',function($scope) {
+
+            $scope.reset = function() {
+                $scope.firstName = "martin";
+                $scope.lastName = "Kingdd";
+            }
+
+            $scope.reset();
+
+        }]);
+    </script>
+</head>
+<body >
+    <div ng-app="myapp" ng-controller="ctrl">
+        <form name="studentForm" novalidate>
+            <input name="firstName" type="text" ng-model="firstName" required>
+            <span style="color:red" ng-show="studentForm.firstName.$dirty && studentForm.firstName.$invalid">
+                <span ng-show="studentForm.firstName.$error.required">First name is required</span>
+            </span>
+            <input name="lastName" type="text" ng-model="lastName" required>
+            <button ng-click="reset()">Reset</button>
+        </form>
+    </div>
+</body>
+</html>

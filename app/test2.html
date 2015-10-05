@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script>
+
+        angular.module('myapp',[]).controller('ctrl',['$scope',function($scope) {
+            $scope.student = {
+                firstName:'MAHESH',
+                lastName:'PARASHAR',
+                fees:500,
+                subjects:[
+                    {name:'Physics', marks:70},
+                    {name:'Chemistry', marks:80},
+                    {name:'Math', marks:65}
+                ],
+                fullName: function() {
+                    var studentObject = $scope.student;
+                    return studentObject.firstName + " " + studentObject.lastName;
+                }
+            }
+        }]);
+    </script>
+    <style>
+        table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+     </style>
+</head>
+<body >
+<div ng-app="myapp">
+    <!-- <p>Enter your name: <input type="text" ng-model="name"></p>
+     <p>Hello <span ng-bind="name"></span>!</p>
+     <p>Hello {{name}}</span>!</p>
+     <ol>
+         <li ng-repeat=" contry in countries">
+             Country Name:<span ng-bind="contry.name"></span> Locale: <span ng-bind="contry.locale"></span>
+         </li>
+     </ol>-->
+    <div ng-controller="ctrl">
+        Enter first name:<input type="text" ng-model="student.firstName"> Last name:<input type="text" ng-model="student.lastName">
+       <br/>{{student.fullName() | lowercase}}
+        <br/>
+        <table>
+            <tr><th>Name</th><th>Marks</th></tr>
+            <tr ng-repeat="subject in student.subjects">
+                <td>{{ subject.name}}</td>
+                <td>{{subject.marks}}</td>
+            </tr>
+        </table>
+
+
+        <input type="checkbox" ng-model="enableDisableButton"> Disable button
+        <button ng-disabled="enableDisableButton">Click me</button>
+        <input type="checkbox" ng-model="showHideButton"> Hidable button
+        <button ng-show="showHideButton">Click me</button>
+        <button ng-click="">Click me!</button>
+    </div>
+</body>
+<script>
+
+</script>
+</html>
