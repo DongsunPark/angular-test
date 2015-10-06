@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script>
+        var myapp = angular.module('myapp',[]);
+
+        myapp.directive('student', function() {
+            var directive = {};
+            directive.restrict = 'E';
+            directive.template = "Student:....";
+            directive.compile = function(element, attributes){
+                element.html(this.template);
+
+                return null;
+            }
+
+            return directive;
+        });
+
+    </script>
+</head>
+<body >
+    <div ng-app="myapp">
+      <student name="mahesh"></student><br/>
+       -------------------------------------<br/>
+      <student name="Piyush"></student><br/>
+    </div>
+</body>
+</html>
