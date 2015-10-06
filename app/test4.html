@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script>
+
+        var myapp = angular.module('myapp',['ngRoute']);
+
+        myapp.config(['$routeProvider',function($routeProvider) {
+
+            $routeProvider.when('/addStudent',{
+                templateUrl : 'addStudent.htm',
+                controller:'addStudentController'
+            }).when('/viewStudents',{
+                        templateUrl : 'viewStudents.htm',
+                        controller:'viewStudentsController'
+                    });
+
+        }]);
+
+        myapp.controller('addStudentController', function($scope) {
+           $scope.message = "This page will be used to display add student form ";
+        }).controller('viewStudentsController', function($scope) {
+            $scope.message = "This page will be used to display vew students form ";
+        });
+    </script>
+</head>
+<body >
+    <div ng-app="myapp" >
+        <p><a href="#addStudent">Add Student</a></p>
+        <p><a href="#viewStudents">View Student</a></p>
+        <div ng-view></div>
+        <script type="text/ng-template" id="addStudent.htm">
+            <h2> add Student</h2>
+            {{message}}
+        </script>
+        <script type="text/ng-template" id="viewStudents.htm">
+            <h2>view Students</h2>
+            {{message}}
+        </script>
+    </div>
+</body>
+</html>
